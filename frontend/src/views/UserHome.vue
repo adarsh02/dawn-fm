@@ -28,7 +28,7 @@
 
 <script>
 import { ref, watch, onMounted } from 'vue';
-import Player from './Player.vue';
+import Player from '../components/Player.vue';
 import { useRouter } from 'vue-router';
 
 export default {
@@ -226,4 +226,3 @@ export default {
   margin-left: 20px;
 }
   </style>
-  

@@ -94,7 +94,7 @@
   <script>
   import { ref,onMounted,reactive } from 'vue';
   import { useRouter } from 'vue-router';
-  import Player from './Player.vue';
+  import Player from '../components/Player.vue';
   
   export default {
     name: 'SongManagement',
@@ -510,4 +510,3 @@ onMounted(() => {
     color: #000;
   }
   </style>
-  

@@ -113,7 +113,7 @@
 
 <script>
 import { ref, watch, onMounted } from 'vue';
-import Player from './Player.vue';
+import Player from '../components/Player.vue';
 import { useRoute,useRouter } from 'vue-router';
 import { onBeforeRouteLeave } from 'vue-router';
 
@@ -908,14 +908,3 @@ const isInCurrentPlaylist = async (playlist_id) => {
   color: #000;
 }
   </style>
-
-
-
-
-
-
-
-
-
-
-  

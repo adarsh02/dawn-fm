@@ -99,7 +99,7 @@ import { ref, watch, onMounted } from 'vue';
 
 import { watchEffect } from 'vue';
 
-import Player from './Player.vue';
+import Player from '../components/Player.vue';
 
 import { onBeforeRouteLeave } from 'vue-router';
 

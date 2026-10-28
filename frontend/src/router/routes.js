@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import RootPage from '../components/Home.vue';
-import UserLogin from '../components/UserLogin.vue';
-import UserSignup from '../components/UserSignup.vue';
+import RootPage from '../views/Home.vue';
+import UserLogin from '../views/UserLogin.vue';
+import UserSignup from '../views/UserSignup.vue';
 
-import UserHome from '../components/UserHome.vue';
-import AlbumTracks from '../components/AlbumTracks.vue';
-import PlaylistTrack from '../components/PlaylistTrack.vue'
-import AlbumManagement from '../components/AlbumManagement.vue'
-import SongManagement from '../components/SongManagement.vue'
-import AdminHome from '../components/AdminHome.vue'
+import UserHome from '../views/UserHome.vue';
+import AlbumTracks from '../views/AlbumTracks.vue';
+import PlaylistTrack from '../views/PlaylistTrack.vue'
+import AlbumManagement from '../views/AlbumManagement.vue'
+import SongManagement from '../views/SongManagement.vue'
+import AdminHome from '../views/AdminHome.vue'
 
 
 const routes = [
@@ -110,42 +110,9 @@ const router = createRouter({
   routes,
 });
 
-// const checkTokenExpiry = async () => {
-//   // Check if the token exists in localStorage
-//   const authToken = localStorage.getItem('token');
-//   if (!authToken) {
-//     // If token doesn't exist, return without performing the check
-//     return;
-//   }
-
-//   try {
-//     const response = await fetch('http://127.0.0.1:5000/auth/check_expiry', {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json',
-        
-//       }
-//     });
-
-//     if (response.ok) {
-//       const data = await response.json();
-//       if (data.expired) {
-//         localStorage.clear();
-//       }
-//     } else {
-//       console.error('Failed to check token expiry:', response.statusText);
-//     }
-//   } catch (error) {
-//     console.error('An error occurred while checking token expiry:', error);
-//   }
-// };
-
-
-
 router.beforeEach((to, from, next) => {
   const authToken = localStorage.getItem('token');
   const role = localStorage.getItem('role');
-  //checkTokenExpiry();
 
   // Check if the route requires authentication
   if (to.matched.some(record => record.meta.requiresAuth)) {

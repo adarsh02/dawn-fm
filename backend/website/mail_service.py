@@ -6,8 +6,7 @@ from email import encoders
 
 SMTP_HOST = "localhost"
 SMTP_PORT = 1025
-SENDER_EMAIL = '21f1000112@ds.study.iitm.ac.in'
-SENDER_PASSWORD = 'Adarsh@2002'
+SENDER_EMAIL = 'noreply@dawnfm.local'
 
 def send_message(to, subject, content_body, attachment_filename=None):
     msg = MIMEMultipart()

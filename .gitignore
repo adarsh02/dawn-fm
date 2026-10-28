@@ -1,0 +1,43 @@
+# Local configuration
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# JavaScript dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# Local application data and generated reports
+backend/instance/*
+!backend/instance/.gitkeep
+*.db
+*.db-shm
+*.db-wal
+*_monthly_report.pdf
+celerybeat-schedule*
+celerybeat.pid
+*.log
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

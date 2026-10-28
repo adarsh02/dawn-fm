@@ -1,18 +1,15 @@
-from celery import shared_task
-import flask_excel as excel
-from .mail_service import send_message
-from .models import db,User, Role,UserLogin,Track,Album
-from jinja2 import Template
-from datetime import datetime, timedelta
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
+"""Scheduled listener reminders and creator analytics reports."""
+
+import io
+from datetime import datetime
+
 import matplotlib.pyplot as plt
-import os
-
+from celery import shared_task
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph
-from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.platypus import Image, SimpleDocTemplate
 
+from .mail_service import send_message
+from .models import Album, Role, Track, User, UserLogin
 
 
 @shared_task(ignore_result=True)
@@ -25,19 +22,13 @@ def daily_reminder(to, subject):
             send_message(user.email, subject, f'Dear {user.username},<br>Please log in to our app today!')
     return "OK"
 
+
 @shared_task(ignore_result=True)
 def monthly_pdf_reminder():
     users = User.query.filter(User.roles.any(Role.name == 'creator')).all()
     for user in users:
         generate_pdf(user.email)
     return "OK"
-
-import os
-import io
-from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Image
-from reportlab.lib.styles import getSampleStyleSheet
-
 
 
 def generate_pdf(email):

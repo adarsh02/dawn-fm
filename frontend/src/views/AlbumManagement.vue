@@ -55,7 +55,7 @@
 <script>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import Player from './Player.vue';
+import Player from '../components/Player.vue';
 
 export default {
   name: 'AlbumManagement',
